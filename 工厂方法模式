@@ -1,0 +1,42 @@
+public interface IceCream {
+
+    public void taste();
+
+}
+AppleIceCream¡¢BananaIceCream¡¢OrangeIceCream
+public interface IceCreamFactory {
+
+    public IceCream createIceCream();
+}
+public class AppleIceCreamFactory implements IceCreamFactory {
+
+    public IceCream createIceCream() {
+        return new AppleIceCream();
+   }
+}
+public class BananaIceCreamFactory implements IceCreamFactory {
+
+    public IceCream createIceCream() {
+        return new BananaIceCream();
+    }
+}
+public class OrangeIceCreamFactory implements IceCreamFactory{
+
+    public IceCream createIceCream() {
+        return new OrangeIceCream();
+   }
+}
+public class Client {
+    public static void main(String[] args) {
+        IceCreamFactory appleFactory = new AppleIceCreamFactory();
+        IceCream appleIceCream = appleFactory.createIceCream();
+        appleIceCream.taste();
+
+        IceCreamFactory  bananaFactory = new BananaIceCreamFactory();
+        IceCream bananaIceCream = bananaFactory.createIceCream();
+        bananaIceCream.taste();
+
+        IceCream orangeIceCream = new OrangeIceCreamFactory().createIceCream();
+        orangeIceCream.taste();
+   }
+}

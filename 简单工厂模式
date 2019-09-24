@@ -1,0 +1,54 @@
+public interface IceCream {
+
+    public void taste();
+}
+public class AppleIceCream implements IceCream {
+    public void taste(){
+        System.out.println("这是苹果口味的冰激凌");
+    }
+}
+public class BananaIceCream implements IceCream {
+
+    public void taste() {
+        System.out.println("这是香蕉口味的冰激凌");
+    }
+}
+public class OrangeIceCream implements IceCream{
+
+    public void taste(){
+        System.out.println("这是橘子口味的冰激凌");
+    }
+}
+public class IceCreamFactory {
+
+    public static IceCream creamIceCream(String taste){
+
+        IceCream iceCream = null;
+        switch(taste){
+
+            case "Apple":
+                iceCream = new AppleIceCream();
+                break;
+            case "Orange":
+                iceCream = new OrangeIceCream();
+                break;
+            case "Banana":
+                iceCream = new BananaIceCream();
+                break;
+            default:
+                break;
+        }
+      return iceCream;
+    }
+}
+public class Client {
+
+    public static void main(String[] args) {
+        IceCream appleIceCream = IceCreamFactory.creamIceCream("Apple");
+        appleIceCream.taste();
+        IceCream bananaIceCream = IceCreamFactory.creamIceCream("Banana");
+        bananaIceCream.taste();
+        IceCream orangeIceCream = IceCreamFactory.creamIceCream("Orange");
+        orangeIceCream.taste(); 
+   }
+}
